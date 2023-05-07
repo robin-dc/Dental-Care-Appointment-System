@@ -1,3 +1,10 @@
+<?php
+
+  include 'connection.php'
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,9 +84,10 @@
                         <div class="card-content black-text col s12 m9">
                             <span class="card-title left">Dental Consultation / Dental Cleaning / Tooth Fillings / Other Procedures</span>
                             <p class="left-align">1 hour</p>
+                            <p id="responsePlaceholder">Waiting for response...</p>
                         </div>
                         <div class="col s12 m3 select-btn">
-                            <a class="btn waves-effect col s12 sel-btn">Select</a>
+                          <button id="buttonConsult" class="btn waves-effect col s12 sel-btn"><a class="white-text">Select</a></button>
                         </div>
                     </div>
                 </div>
@@ -88,9 +96,10 @@
                         <div class="card-content black-text col s12 m9">
                             <span class="card-title left">Pediatric Dentist (for 0-13 years old): Dental Consultation / Dental Cleaning</span>
                             <p class="left-align">1 hour</p>
+                            <p id="responsePlaceholder1">Waiting for response...</p>
                         </div>
                         <div class="col s12 m3 select-btn">
-                            <a class="btn waves-effect col s12 sel-btn">Select</a>
+                          <button id="buttonPedia" class="btn waves-effect col s12 sel-btn"><a class="white-text">Select</a></button>
                         </div>
                     </div>
                 </div>
@@ -107,24 +116,25 @@
                                   <input id="username" type="text">
                               </div>
                               <div class="col s12">
-                                  <label for="password">Email</label>
-                                  <input id="password" type="text">
+                                  <label for="email">Email</label>
+                                  <input id="email" type="text">
                               </div>
                               <div class="col s12">
                                   <label for="phone">Phone</label>
-                                  <input id="phone" type="text">
+                                  <input id="phone" type="text" maxlength="12" placeholder="63">
                               </div>
                               <div class="col s12">
                                   <label for="address">Address</label>
                                   <input id="address" type="text">
                               </div>
                               <div class="col s12">
-                                  <label for="problem">Short Description of Dental Problem</label>
-                                  <input id="problem" type="text">
+                                  <label for="description">Short Description of Dental Problem</label>
+                                  <input id="description" type="text">
                               </div>
                               <div class="col s12">
-                                <a class="btn waves-effect next-btn right">NEXT</a>
+                                <button type="button" id="submit" class="btn waves-effect next-btn right"><a class="white-text">NEXT</a></button>
                               </div>
+                              <p id="response">Waiting for response...</p>
                             </div>
                         </form>
                 </div>
@@ -165,71 +175,61 @@
                         <div class="col s6 center-flex">
                           <p>
                             <label>
-                              <input class="with-gap" name="group1" type="radio" checked/>
-                              <span class="black-text">09:00AM - 10:00AM</span>
-                            </label>
-                          </p>
-                          <p>
-                            <label>
-                              <input class="with-gap" name="group1" type="radio"/>
+                              <input class="with-gap" name="timeRadio" value="10:00-11:00" type="radio"/>
                               <span class="black-text">10:00AM - 11:00AM</span>
                             </label>
                           </p>
                           <p>
                             <label>
-                              <input class="with-gap" name="group1" type="radio"/>
+                              <input class="with-gap" name="timeRadio" value="11:00-12:00" type="radio"/>
                               <span class="black-text">11:00AM - 12:00NN</span>
                             </label>
                           </p>
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio" />
-                                <span class="black-text">1:00PM - 2:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="13:00-14:00" type="radio" />
+                                <span class="black-text">13:00PM - 14:00PM</span>
                               </label>
                           </p>
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio"  />
-                                <span class="black-text">2:00PM - 3:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="14:00-15:00" type="radio"  />
+                                <span class="black-text">14:00PM - 15:00PM</span>
                               </label>
                           </p>
                         </div>
+
                         <div class="col s6 center-flex">
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio"/>
-                                <span class="black-text">3:00PM - 4:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="15:00-16:00" type="radio"/>
+                                <span class="black-text">15:00PM - 16:00PM</span>
                               </label>
                           </p>
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio"/>
-                                <span class="black-text">4:00PM - 5:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="16:00-17:00" type="radio"/>
+                                <span class="black-text">16:00PM - 17:00PM</span>
                               </label>
                           </p>
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio"/>
-                                <span class="black-text">5:00PM - 6:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="17:00-18:00" type="radio"/>
+                                <span class="black-text">17:00PM - 18:00PM</span>
                               </label>
                           </p>
                           <p>
                             <label>
-                                <input class="with-gap" name="group1" type="radio"/>
-                                <span class="black-text">6:00PM - 7:00PM</span>
-                              </label>
-                          </p>
-                          <p>
-                            <label>
-                                <input class="with-gap" name="group1" type="radio" disabled="disabled" />
-                                <span class="black-text">7:00PM - 8:00PM</span>
+                                <input class="with-gap" name="timeRadio" value="18:00-19:00" type="radio"/>
+                                <span class="black-text">18:00PM - 19:00PM</span>
                               </label>
                           </p>
                         </div>
                         </form>
                     </div>
                 <div class="col s12">
-                  <button type="submit" class="btn waves-effect right confirm-btn modal-trigger" href="#modal1" >CONFIRM</button>
+                  <button type="submit" id="confirm" class="btn waves-effect right confirm-btn modal-trigger" href="#modal1" >CONFIRM</button>
+                  <p id="response1">Waiting for response...</p>
                 </div>
             </div>
         </div>
@@ -238,7 +238,7 @@
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>New Payment</h4>
-            <input type="text" name="cash" id="cash" placeholder="Enter amount">
+            <input type="number" name="cash" id="cash" placeholder="Enter amount">
             <div class="pay-text">
               <p>Amount to Pay</p>
               <span>500</span>
@@ -252,9 +252,10 @@
               <img src="images/gcash-logo.png" alt="" class="gcash-logo">
             </div>
           </div>
+          <p id="response2">Waiting for response...</p>
           <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect cancel-pay">Cancel</a>
-            <a href="#!" class="modal-close waves-effect btn pay-btn" onclick="M.toast({html: 'You already secured your appointment.'})">Pay</a>
+            <button id="payButton" class="modal-close waves-effect btn pay-btn">Pay</button>
           </div>
       </div>
     </section>
@@ -279,6 +280,149 @@
             </div>
         </div>
   </footer>
+
+  <!-- Manual Scripting for Variable -->
+  <script>
+    // Inserting Data of 1st Tab //
+
+    let Consult;
+
+    const buttonConsult = document.getElementById('buttonConsult');
+    const responsePlaceholder = document.getElementById('responsePlaceholder');
+
+    buttonConsult.addEventListener('click', function() {
+      event.preventDefault();
+      Consult = 'Dental Tooth Cleaning';
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'categoryVariable.php');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+          responsePlaceholder.innerHTML = xhr.responseText;
+        };
+      xhr.send('my_variable=' + Consult);
+
+    });
+
+    let Pedia;
+
+    const buttonPedia = document.getElementById('buttonPedia');
+    const responsePlaceholder1 = document.getElementById('responsePlaceholder1');
+
+    buttonPedia.addEventListener('click', function() {
+      event.preventDefault();
+      Pedia = 'Pediatric Tooth Cleaning';
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'categoryVariable.php');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+          responsePlaceholder1.innerHTML = xhr.responseText;
+        };
+      xhr.send('my_variable=' + Pedia);
+
+    });
+
+    // Inserting data of 2nd Tab //
+
+    const Auser = document.getElementById('username');
+    const Aemail = document.getElementById('email');
+    const Aphone = document.getElementById('phone');
+    const Aaddress = document.getElementById('address');
+    const Adesc = document.getElementById('description');
+    const button2 = document.getElementById('submit');
+    const response = document.getElementById('response');
+
+    button2.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the webpage from refreshing
+
+      const user = Auser.value;
+      const email = Aemail.value;
+      const phone = Aphone.value;
+      const address = Aaddress.value;
+      const desc = Adesc.value;
+
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+          console.log(this.responseText); // Output the response from the PHP file
+          response.innerHTML = this.responseText;
+        }
+      };
+      xhr.open('POST', 'infoVariable.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send('user=' + user + '&email=' + email + '&phone=' + phone + '&address=' + address + '&desc=' + desc);
+    });
+
+    // Inserting data of 3rd tab //
+
+    const Adate = document.getElementById('date-1');
+    const button3 = document.getElementById('confirm');
+    const response1 = document.getElementById('response1');
+
+    // Get the radio button element
+    let radioButton = document.querySelectorAll('input[name="timeRadio"]');
+    let checkedBtn;
+
+    // Add an event listener for the "click" event
+    radioButton.forEach(function(button){
+      button.addEventListener("click", function() {
+        // Add the "checked" attribute to the radio button
+        if(button.checked){
+          checkedBtn = button.value
+        }
+      });
+    })
+
+    button3.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the webpage from refreshing
+
+        const date1 = Adate.value;
+        const time1 = checkedBtn;
+
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            console.log(this.responseText); // Output the response from the PHP file
+            response1.innerHTML = this.responseText;
+          }
+        };
+        xhr.open('POST', 'dateVariable.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('date=' + date1 + '&time=' + time1);
+      });
+
+      // ===================================== ROBIN ==============================================
+      const inputDay = document.getElementById('date-1');
+
+      inputDay.addEventListener('change', function(event) {
+        radioButton.forEach(function(button){
+            button.removeAttribute("disabled", "");
+        })
+
+        let newValue = event.target.value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = xhr.responseText;
+            let timeArray = response.split(",")
+            timeArray.forEach(function(time){
+              radioButton.forEach(function(button){
+                if(time === button.value){
+                  button.setAttribute("disabled", "");
+                }
+              })
+            })
+          }
+        };
+
+        xhr.open('POST', 'disable.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send('dateInput=' + newValue);
+      });
+      // ===================================== ROBIN ==============================================
+  </script>
 
   <!-- JAVASCRIPT SRC -->
   <script src="jquery-3.6.1.min.js"></script>

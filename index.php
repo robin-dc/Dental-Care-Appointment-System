@@ -243,14 +243,14 @@
       </div>
     </footer>
 
-    <!-- MESSENGER : FLOATING BTN -->
+    <!-- MESSENGER : FLOATING BTN
     <div class="fixed-action-btn">
         <a class="btn-floating blue darken-3 btn-large">
           <i class="fa-brands fa-facebook-messenger"></i>
         </a>
-    </div>
+    </div> -->
 
-
+    <script src="//code.tidio.co/npl6ypi8ci5pimh9ch0xjjg7ixowk7k8.js" async></script>
 
     <!-- JAVASCRIPT SRC -->
     <script src="jquery-3.6.1.min.js"></script>

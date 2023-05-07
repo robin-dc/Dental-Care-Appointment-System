@@ -68,7 +68,7 @@ p{
     z-index: 999;
     width:100%;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.192);
-    transition: .5s;
+    transition: .3s;
 }
 .index-html .nav-content.active ul{
     padding-left: 4rem;
@@ -704,7 +704,7 @@ p{
 .book-html .input-field > *{
     border:0 !important;
 }
-.book-html .input-field.active{
+.book-html .input-field.active, .admin-html .input-field.active{
     border:0!important;
 }
 .book-html .input-field::after{
@@ -814,6 +814,11 @@ p{
 .admin-html .tabs .tab a:focus,.admin-html .tabs .tab a:focus.active{
     background-color: #0092b71a;
 }
+.admin-html input:not([type]):focus:not([readonly]),.admin-html input[type=text]:not(.browser-default):focus:not([readonly]),.admin-html input[type=password]:not(.browser-default):focus:not([readonly]),.admin-html input[type=email]:not(.browser-default):focus:not([readonly]),.admin-html input[type=url]:not(.browser-default):focus:not([readonly]),.admin-html input[type=time]:not(.browser-default):focus:not([readonly]),.admin-html input[type=date]:not(.browser-default):focus:not([readonly]),.admin-html input[type=datetime]:not(.browser-default):focus:not([readonly]),.admin-html input[type=datetime-local]:not(.browser-default):focus:not([readonly]),.admin-html input[type=tel]:not(.browser-default):focus:not([readonly]),.admin-html input[type=number]:not(.browser-default):focus:not([readonly]),.admin-html input[type=search]:not(.browser-default):focus:not([readonly]),.admin-html textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom:4px solid blue;
+    -webkit-box-shadow:0 0px 0 0 blue;
+    box-shadow:0 0px 0 0 blue;
+}
 table {
     border-collapse: collapse;
     width: 100%;
@@ -825,8 +830,12 @@ table {
     font-size: 2.4rem !important;
     font-weight: 600 !important;
     color: #444444f3 !important;
+    /* margin-top: 1rem !important; */
+    margin-bottom: 3rem !important;
 }
-
+.admin-html .appointments, .admin-html .recent, .admin-html .all{
+    height:90vh !important;
+}
 .admin-html .table-scroll{
     height:380px;
     overflow-y: scroll;
@@ -866,7 +875,6 @@ table.striped>tbody>tr:nth-child(even){
     margin-top: 1.8rem;
     width:20% !important;
 }
-
 .admin-html .appointment-table{
     margin-top: 0 !important;
 }
@@ -934,4 +942,52 @@ tr{
 
 .center-flex-wrapper{
     margin-top: 2rem !important;
+}
+
+/* SEARCH BAR */
+
+.appointments .container, .recent .container, .all .container{
+    position:  relative !important;
+}
+
+.search-wrapper{
+    position: absolute !important;
+    top:-.3rem !important;
+    right:0 !important;
+    padding:0 !important;
+    margin:0 !important;
+    width:50%;
+}
+.admin-html .search-wrapper input{
+    outline: none;
+    padding-left: 2rem !important;
+    border: none !important;
+    margin-top: 4px !important;
+    margin: 0 !important;
+    width:100% !important;
+    border-radius: 80px !important;
+}
+.search-wrapper form{
+    margin-right: 1rem !important;
+	border-radius: 80px;
+    border: 2px solid #26a69a;
+    position: relative;
+}
+.search-wrapper form .btn{
+    border-radius: 50%;
+    position:absolute;
+    height:104%;
+    width:50px;
+    top:-1px;
+    right:-1px;
+    box-shadow: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-wrapper .search_box{
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
 }
