@@ -4,7 +4,7 @@ This project is the final capstone for our second year in Computer Engineering.
 
 DEVELOPERS ASSIGNED TASKS
 
-●	Robin T. Dela Cruz created user interface design, which combines technical knowledge with creativity and design elements to provide a more engaging, eye-catching, and enjoyable experience. He was also tasked with developing website's backend, specially the appointment page and website’s admin.
+●	Robin T. Dela Cruz created the frontend, which combines technical knowledge with creativity and design elements to provide a more engaging, eye-catching, and enjoyable experience. He was also tasked with developing website's backend, specifically the appointment page and website’s admin.
 
 ●	Klaudi Mer F. Pantaleon was assigned on the websites paperwork where data’s, information’s and contents are discussed. He was also assigned to create the websites logos and icons.  
 
